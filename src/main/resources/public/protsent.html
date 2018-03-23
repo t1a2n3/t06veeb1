@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>Rakenduse kirjeldus</title>
+        <meta charset="UTF-8">
+        
+        <script>
+            let xhr= new XMLHttpRequest();
+            xhr.onreadystatechange=kuvaVastus;
+            
+            function sisestaArvud(){
+                let arv = document.getElementById("arv").value;
+                let protsent = document.getElementById("protsent").value;
+                let aadress = "/protsent?arv1="+arv+"&arv2="+protsent;
+                xhr.open("GET",aadress,true);
+                xhr.send();
+            }
+            
+            function kuvaVastus(){
+                if(xhr.readyState==4){
+                document.getElementById("vastus").innerHTML="Protsent arvust on: "+xhr.responseText;
+                }
+            }
+            
+        </script>    
+    </head>
+    <body>
+        <div>Protsendi leidmine arvust</div>
+        <p>Sisesta arv ning protsent</p>
+        Arv<input type="number" id="arv"/>
+        Protsent<input type="number" id="protsent"/>
+        
+        <input type="button" value="Leia protsent arvust" onclick="sisestaArvud()"/><br>
+        <span id="vastus"><span><br>
+        
+        
+   
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
